@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Card from './components/Card';
 
 function App() {
 
@@ -21,9 +22,9 @@ function App() {
       {items && (<div>
         <h2>Repositories</h2>
         <div>
-          {items.map((item)=>{
-            <Card key={item.map} data={item} />
-          })}
+          {items.map((item) => (
+            <Card key={item.id} data={item} />
+          ))}
         </div>
       </div>)}
     </div>
