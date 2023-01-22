@@ -3,7 +3,6 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	background-color: #605555;
 }
 
@@ -13,6 +12,7 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+
 h2{
 	color: white;
 }
@@ -21,6 +21,7 @@ h2{
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
+	height: auto;
 	flex-wrap: wrap;
 }
 .card_container{
@@ -50,7 +51,7 @@ h2{
 	margin-left: 10px;
 }
 
-.repo_details h5,h3{
+.repo_details h5,h4{
 	margin: 5px;
 }
 .data{
@@ -60,4 +61,14 @@ h2{
 
 .data h5,p{
 	margin: 5px;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+a:hover{
+	text-decoration: underline;
 }

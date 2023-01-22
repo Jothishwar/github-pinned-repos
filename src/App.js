@@ -14,7 +14,7 @@ function App() {
       setItems(data)
     };
     fetchRepos()
-  },[])
+  },[user])
 
   return (
     <div className="app">
@@ -22,7 +22,7 @@ function App() {
       {items && (<>
         <div className="repos">
           {items.map((item) => (
-            <Card key={items.indexOf(item)} data={item} />
+            <Card key={items.indexOf(item)} data={item} user={user} />
           ))}
         </div>
       </>)}
