@@ -1,0 +1,29 @@
+body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #605555;
+	color: white;
+}
+
+.app{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.repos{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	flex-wrap: wrap;
+}
+.card_container{
+	width: 300px;
+	height: 200px;
+	border: 2px solid red;
+	margin: 10px;
+}

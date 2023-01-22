@@ -2,8 +2,9 @@ import React from 'react'
 
 function Card({data}) {
 	return (
-		<div>
-			{data.id}		
+		<div className='card_container'>
+			<div className='card_header'>{data.repo}</div>
+						
 		</div>
 	)
 }

@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const fetchRepos = async () => {
-      const res = await fetch(`https://api.github.com/users/${user}/repos?page=1&per_page=10&sort=created`)
+      const res = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${user}`)
       const data = await res.json()
       setItems(data)
     };
@@ -17,16 +17,15 @@ function App() {
   },[])
 
   return (
-    <div className="App">
-      Github User
-      {items && (<div>
-        <h2>Repositories</h2>
-        <div>
+    <div className="app">
+      <h2>Repositories</h2>
+      {items && (<>
+        <div className="repos">
           {items.map((item) => (
-            <Card key={item.id} data={item} />
+            <Card key={item.index} data={item} />
           ))}
         </div>
-      </div>)}
+      </>)}
     </div>
   );
 }
