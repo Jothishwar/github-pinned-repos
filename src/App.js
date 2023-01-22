@@ -22,7 +22,7 @@ function App() {
       {items && (<>
         <div className="repos">
           {items.map((item) => (
-            <Card key={item.index} data={item} />
+            <Card key={items.indexOf(item)} data={item} />
           ))}
         </div>
       </>)}
