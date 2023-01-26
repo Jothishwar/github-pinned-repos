@@ -11,6 +11,7 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 90vw;
 }
 
 .input_container{
@@ -29,6 +30,16 @@ body{
 }
 .input_container button{
 	margin-left:10px;
+	margin: 5px;
+}
+.input_container input{
+	border-radius: 10px;
+	padding-left: 10px;
+	outline: none;
+	border: 1px solid black;
+}
+.input_container input:hover{
+	outline: none;
 }
 h2{
 	color: white;
@@ -109,4 +120,24 @@ a:hover{
 }
 .card_body p{
 	font-size: medium;
+}
+
+@media(max-width:768px){
+	body{
+		font-size: 15px;
+	}
+	.input_container{
+		width: 80%;
+	}
+}
+
+@media(max-width:426px){
+	.input_container{
+		flex-direction: column;
+		width: 80%;
+		align-items: flex-start;
+	}
+	.input_container p,.input_container input,.input_container button{
+		margin-left: 30px;
+	}
 }
