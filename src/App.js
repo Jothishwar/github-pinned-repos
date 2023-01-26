@@ -1,12 +1,13 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import Card from './components/Card';
-import { Button } from "@chakra-ui/button";
+import { useState} from 'react';
+
+import Repositories from './components/Repositories';
+import { Button } from 'react-bootstrap';
 
 function App() {
 
-  const [user,setUser] = useState('jothishwar');
-  const [items, setItems] = useState([]);
+  const [user,setUser] = useState(null);
+  const [items, setItems] = useState(null);
 
   const fetchData= () => {
       const fetchRepos = async () => {
@@ -25,19 +26,14 @@ function App() {
   }
   return (
     <div className="app">
-      <div>
+      <div className='input_container'>
         <p htmlFor='username'>User Name :</p>
         <input type="text" name='username' onChange={handleChange} />
-        <Button colorScheme="teal" size='md' onClick={handleSubmit} >Submit</Button>
+        <Button variant="primary" onClick={handleSubmit} >Submit</Button>
       </div>
-      <h2>Repositories</h2>
-      {items && (<>
-        <div className="repos">
-          {items.map((item) => (
-            <Card key={items.indexOf(item)} data={item} user={user} />
-          ))}
-        </div>
-      </>)}
+      {items && (
+        <Repositories items={items} user={user} />
+      )}
     </div>
   );
 }
