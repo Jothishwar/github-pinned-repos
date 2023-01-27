@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/github-pinned-repos/static/css/main.c1f21fc2.css",
-    "main.js": "/github-pinned-repos/static/js/main.b66931d9.js",
+    "main.css": "/github-pinned-repos/static/css/main.9659fac3.css",
+    "main.js": "/github-pinned-repos/static/js/main.86e15bef.js",
     "index.html": "/github-pinned-repos/index.html",
-    "main.c1f21fc2.css.map": "/github-pinned-repos/static/css/main.c1f21fc2.css.map",
-    "main.b66931d9.js.map": "/github-pinned-repos/static/js/main.b66931d9.js.map"
+    "main.9659fac3.css.map": "/github-pinned-repos/static/css/main.9659fac3.css.map",
+    "main.86e15bef.js.map": "/github-pinned-repos/static/js/main.86e15bef.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1f21fc2.css",
-    "static/js/main.b66931d9.js"
+    "static/css/main.9659fac3.css",
+    "static/js/main.86e15bef.js"
   ]
 }
