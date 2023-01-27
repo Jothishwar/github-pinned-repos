@@ -8,12 +8,14 @@ function App() {
 
   const [user,setUser] = useState(null);
   const [items, setItems] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData= () => {
       const fetchRepos = async () => {
       const res = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${user}`)
       const data = await res.json()
       setItems(data)
+      setIsLoading(false)
       };
       fetchRepos()
   };
@@ -22,6 +24,7 @@ function App() {
     setUser(e.target.value)
   }
   const handleSubmit = () => {
+    setIsLoading(true);
     fetchData();
   }
   return (
@@ -31,7 +34,16 @@ function App() {
         <input type="text" name='username' onChange={handleChange} />
         <Button variant="primary" onClick={handleSubmit} >Submit</Button>
       </div>
-      {items && (
+      {isLoading && (
+        <div className='scaling-dots'>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        )}
+      {items && !isLoading && (
         <Repositories items={items} user={user} />
       )}
     </div>
