@@ -1,6 +1,6 @@
 import './App.css';
 import { useState} from 'react';
-
+import GetCode from './components/GetCode';
 import Repositories from './components/Repositories';
 import { Button } from 'react-bootstrap';
 
@@ -9,6 +9,8 @@ function App() {
   const [user,setUser] = useState(null);
   const [items, setItems] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const fetchData= () => {
       const fetchRepos = async () => {
@@ -16,12 +18,14 @@ function App() {
       const data = await res.json()
       setItems(data)
       setIsLoading(false)
+      setIsDisabled(false)
       };
       fetchRepos()
   };
 
   const handleChange=(e)=>{
     setUser(e.target.value)
+    setIsDisabled(true)
   }
   const handleSubmit = () => {
     setIsLoading(true);
@@ -33,6 +37,13 @@ function App() {
         <p htmlFor='username'>User Name :</p>
         <input type="text" name='username' onChange={handleChange} />
         <Button variant="primary" onClick={handleSubmit} >Submit</Button>
+        <Button 
+          variant="secondary" 
+          onClick={()=>setShowModal(true)} 
+          disabled={isDisabled} 
+        >
+          Get Code
+        </Button>
       </div>
       {isLoading && (
         <div className='scaling-dots'>
@@ -45,6 +56,12 @@ function App() {
         )}
       {items && !isLoading && (
         <Repositories items={items} user={user} />
+      )}
+      {showModal && (
+      <GetCode 
+        show={showModal}
+        onHide={()=>setShowModal(false)}
+      />
       )}
     </div>
   );
