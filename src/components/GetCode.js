@@ -3,39 +3,12 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { CodeBlock, dracula } from "react-code-blocks";
+import { CodeBlock, solarizedDark } from "react-code-blocks";
+import { appCode,cardCode } from '../code.js';
 
 function GetCode(props) {
 
 	const [key, setKey] = useState('app.js');
-	const app = `import { useState, useEffect } from 'react';
-import Card from './Card';
-import './App.css';
-
-function App() {
-	const [items, setItems] = useState(null);
-
-	useEffect(() => {
-		const fetchRepos = async () => {
-		    const res = await fetch(https://gh-pinned-repos.egoist.dev/?username=${props.user})
-		    const data = await res.json()
-		    setItems(data)
-		};
-		fetchRepos()
-	}, [])
-
-	return(
-		<div className="app">
-			{items && (
-			<>
-				{items.map((item) => (
-				    <Card key={items.indexOf(item)} data={item} user={user} />
-			    ))}
-			</>
-		    )}
-		</div>
-	)
-}`
 	
 	return (
 		<div>
@@ -56,12 +29,17 @@ function App() {
 					>
 						<Tab eventKey='app.js' title='App.js'>
 							<CodeBlock
-							text={app}
+							text={appCode(props.user)}
 							language={'jsx'}
-							theme={dracula}
+							theme={solarizedDark}
 							/>
 						</Tab>
 						<Tab eventKey='card.js' title='Card.js'>
+							<CodeBlock
+							text={cardCode(props.user)}
+							language={'jsx'}
+							theme={solarizedDark}
+							/>
 						</Tab>
 						<Tab eventKey='app.css' title='App.css'>
 							App.css
