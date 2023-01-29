@@ -61,6 +61,7 @@ function App() {
       <GetCode 
         show={showModal}
         onHide={()=>setShowModal(false)}
+        user={user}
       />
       )}
     </div>
