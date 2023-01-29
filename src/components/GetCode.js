@@ -3,8 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { CodeBlock, solarizedDark } from "react-code-blocks";
-import { appCode,cardCode } from '../code.js';
+import { CodeBlock, a11yDark } from "react-code-blocks";
+import { appCode,cardCode,styleCode } from '../code.js';
 
 function GetCode(props) {
 
@@ -31,18 +31,22 @@ function GetCode(props) {
 							<CodeBlock
 							text={appCode(props.user)}
 							language={'jsx'}
-							theme={solarizedDark}
+							theme={a11yDark}
 							/>
 						</Tab>
 						<Tab eventKey='card.js' title='Card.js'>
 							<CodeBlock
 							text={cardCode(props.user)}
 							language={'jsx'}
-							theme={solarizedDark}
+							theme={a11yDark}
 							/>
 						</Tab>
 						<Tab eventKey='app.css' title='App.css'>
-							App.css
+							<CodeBlock
+							text={styleCode}
+							language={'jsx'}
+							theme={a11yDark}
+							/>
 						</Tab>
 					</Tabs>
 				</Modal.Body>

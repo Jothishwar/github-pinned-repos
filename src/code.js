@@ -90,4 +90,66 @@ function Card({data}) {
 export default Card;
 `);
 
-export {appCode,cardCode};
+const styleCode=`.card_container{
+	background-color: white;
+	width: 300px;
+	min-height: 260px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+	margin: 10px;
+	padding: 5px 0 5px 10px;
+	border-radius: 20px;
+}
+.card_header{
+	display: flex;
+	align-items: center;
+}
+.avatar svg{
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+}
+.repo_details{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: left;
+	margin-left: 10px;
+}
+
+.repo_details h5,h4{
+	margin: 5px;
+}
+.repo_details h4{
+	font-size: 20px;
+	font-weight: 600;
+}
+.repo_details h5{
+	font-size: 15px;
+	font-weight: 600;
+}
+.data{
+	display: flex;
+	align-items: center;
+}
+
+.data h5,p{
+	margin: 5px;
+}
+.data h5{
+	font-size: 15px;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+a:hover{
+	text-decoration: underline;
+}
+.card_body p{
+	font-size: medium;
+}`
+
+export {appCode,cardCode,styleCode};
