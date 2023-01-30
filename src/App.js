@@ -14,11 +14,11 @@ function App() {
 
   const fetchData= () => {
       const fetchRepos = async () => {
-      const res = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${user}`)
-      const data = await res.json()
-      setItems(data)
-      setIsLoading(false)
-      setIsDisabled(false)
+        const res = await fetch(`https://gh-pinned-repos.egoist.dev/?username=${user}`)
+        const data = await res.json()
+        setItems(data)
+        setIsLoading(false)
+        setIsDisabled(false)
       };
       fetchRepos()
   };
@@ -27,16 +27,23 @@ function App() {
     setUser(e.target.value)
     setIsDisabled(true)
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setIsLoading(true);
     fetchData();
   }
   return (
     <div className="app">
-      <div className='input_container'>
+      <form className='input_container' onSubmit={handleSubmit}>
         <p htmlFor='username'>User Name :</p>
-        <input type="text" name='username' onChange={handleChange} />
-        <Button variant="primary" onClick={handleSubmit} >Submit</Button>
+        <input type="text" name='username' onChange={handleChange} required />
+        <Button 
+          variant="primary" 
+          onClick={!isLoading? handleSubmit:null} 
+          disabled={isLoading?true:false}
+        >
+          {isLoading ? 'Loading...' : 'Submit'}
+        </Button>
         <Button 
           variant="secondary" 
           onClick={()=>setShowModal(true)} 
@@ -44,7 +51,7 @@ function App() {
         >
           Get Code
         </Button>
-      </div>
+      </form>
       {isLoading && (
         <div className='scaling-dots'>
           <div></div>
